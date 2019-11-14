@@ -1,0 +1,9 @@
+.react-datepicker__input-container > input {
+    padding-left: 5px;
+    width: 130px;
+}
+
+.input-icon {
+    z-index: 99;
+    margin-left: -23px;
+}
