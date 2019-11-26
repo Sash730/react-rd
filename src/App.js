@@ -1,7 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { Router, Redirect } from "@reach/router";
 
-import { Header } from "./components/Header";
+import { Header } from "./components/Navbar";
 import { Payback } from "./components/Payback";
 import { Istream } from "./components/Istream";
 import { Footer } from "./components/Footer";
@@ -11,10 +11,12 @@ import './assets/css/open-iconic-bootstrap.css';
 function App() {
   return (
     <div className="App">
+        <Header />
      <Router>
-         <Header />
-         <PrivateRoute path="/istream" component={Istream} />
-         <PrivateRoute path="/payback" component={Payback} />
+         <Redirect from="/" to="istream" noThrow />
+         <PrivateRoute path="/istream" as={Istream} />
+         <PrivateRoute path="/payback" as={Payback} />
+         <NotFound default />
       </Router>
       <Footer />
     </div>
@@ -23,22 +25,10 @@ function App() {
 
 export default App;
 
-function PrivateRoute({ component: Component, ...rest }) {
-    return (
-        <Route
-            {...rest}
-            render={props =>
-                true ? (
-                    <Component {...props} />
-                ) : (
-                    <Redirect
-                        to={{
-                            pathname: "/login",
-                            state: { from: props.location }
-                        }}
-                    />
-                )
-            }
-        />
-    );
+const NotFound = () => <div style={{marginTop: "70px"}}><p>Sorry, nothing here</p></div>;
+
+function PrivateRoute(props) {
+        let {as: Comp, ...rest} = props;
+
+        return true ? <Comp {...rest} /> : <Redirect to="/auth/login"/>;
 }

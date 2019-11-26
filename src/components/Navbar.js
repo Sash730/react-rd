@@ -1,6 +1,31 @@
+// import React from 'react';
+// import AppBar from '@material-ui/core/AppBar';
+// import Toolbar from '@material-ui/core/Toolbar';
+//
+// export function NavBar(props) {
+//     const {classes} = props;
+//
+//     return (
+//         <AppBar position="static" elevation={0}>
+//             <Toolbar>
+//                 <IconButton className={classes.menuButton} color="contrast" onClick={this.props.toggleDrawer}><MenuIcon/></IconButton>
+//                 <Typography className={classes.flex} type="title" color="inherit">
+//                     Material-UI Demo App
+//                 </Typography>
+//                 <div>
+//                     <IconButton color="contrast" onClick={this.props.login}>
+//                         <AccountCircle/>
+//                     </IconButton>
+//                 </div>
+//             </Toolbar>
+//         </AppBar>
+//     )
+// }
+
+
 import React from "react";
 import { Navbar, Nav, NavItem } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link } from "@reach/router";
 //
 // const Nav = {
 //     backgroundColor: "#f8f8f8",
