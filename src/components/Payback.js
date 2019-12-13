@@ -8,7 +8,7 @@ export function Payback() {
 
     return (
         <>
-        <div style={{paddingTop: "70px"}} className="container">
+        <div className="container">
             <DatePickerDemo startDate={startDate}
                             onChange={(date) => setStartDate(date)}
             />
